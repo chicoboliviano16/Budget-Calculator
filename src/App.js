@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import ExpenseList from './components/ExpenseList'
+import ExpenseForm from './components/ExpenseForm'
+import Alert from './components/Alert'
+import uuid from 'uuid/v4'
+
 import './App.css';
+
+const initialExpenses = [
+  {id: uuid(), charge:"rent", amount:1600},
+  {id: uuid(), charge:"car payment", amount:1200},
+  {id: uuid(), charge:"cellphone", amount:500}
+]
+
+
+//import useState()
+//it returns [] with 2 values
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Alert />
+      <ExpenseForm />
+      <ExpenseList />
+    </>
   );
 }
 
